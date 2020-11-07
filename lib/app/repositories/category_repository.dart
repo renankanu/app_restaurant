@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 
-class CharactersRepository {
+class CategoryRepository {
   Dio _dio;
 
-  CharactersRepository(
+  CategoryRepository(
     this._dio,
   );
 }
