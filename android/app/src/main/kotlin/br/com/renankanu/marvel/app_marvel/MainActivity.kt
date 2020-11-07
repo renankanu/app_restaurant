@@ -1,4 +1,4 @@
-package br.com.renankanu.marvel.app_marvel
+package br.com.renankanu.rest.app_restaurant
 
 import io.flutter.embedding.android.FlutterActivity
 

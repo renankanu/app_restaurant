@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart'; 
-import 'package:app_marvel/app/modules/detail/controllers/detail_controller.dart';
+import 'package:get/get.dart';
+import 'package:app_restaurant/app/modules/detail/controllers/detail_controller.dart';
 
 class DetailView extends GetView<DetailController> {
   @override
@@ -12,11 +12,10 @@ class DetailView extends GetView<DetailController> {
       ),
       body: Center(
         child: Text(
-          'DetailView is working', 
-          style: TextStyle(fontSize:20),
+          'DetailView is working',
+          style: TextStyle(fontSize: 20),
         ),
       ),
     );
   }
 }
-  

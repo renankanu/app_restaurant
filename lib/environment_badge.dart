@@ -1,4 +1,4 @@
-import 'package:app_marvel/config.dart';
+import 'package:app_restaurant/config.dart';
 import 'package:flutter/material.dart';
 
 class EnvironmentsBadge extends StatelessWidget {
