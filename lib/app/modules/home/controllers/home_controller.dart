@@ -1,18 +1,26 @@
+import 'package:app_restaurant/app/models/category_model.dart';
 import 'package:get/get.dart';
 
+import '../../../repositories/category_repository.dart';
+
 class HomeController extends GetxController {
-  //TODO: Implement HomeController
-  
-  final count = 0.obs;
+  CategoryRepository _categoryRepository;
+
+  HomeController(this._categoryRepository);
+
+  final categories = List<CategoryModel>().obs;
 
   @override
-  void onInit() {}
+  void onInit() {
+    _categoryRepository.getCategories();
+    super.onInit();
+  }
 
   @override
-  void onReady() {}
+  void onReady() {
+    super.onReady();
+  }
 
   @override
   void onClose() {}
-
-  void increment() => count.value++;
 }

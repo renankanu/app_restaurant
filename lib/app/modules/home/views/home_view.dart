@@ -8,7 +8,7 @@ class HomeView extends GetView<HomeController> {
     return Scaffold(
       body: Center(
         child: Text(
-          'HomeView is working',
+          controller.categories[0].categories.name,
           style: TextStyle(fontSize: 20),
         ),
       ),
