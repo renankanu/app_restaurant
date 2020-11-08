@@ -10,7 +10,7 @@ class CustomInterceptor extends InterceptorsWrapper {
 
   @override
   Future onRequest(RequestOptions options) async {
-    options.headers.addAll({"user-key": "654e34a33e59154da71b5143d5a4f1f1"});
+    options.headers.addAll({"user-key": "654e34a33e59154da71b5143d5a4f1f2"});
 
     if (options.data != null && options.data is Map) {
       options.data.removeWhere((_, value) => value == null);
@@ -22,8 +22,7 @@ class CustomInterceptor extends InterceptorsWrapper {
     }
 
     if (!kReleaseMode) {
-      print(
-          '===================== MEGALEIOS REQUEST LOG =====================');
+      print('=====================  REQUEST LOG =====================');
       print('REQUEST <${options.baseUrl}${options.path}>[${options.method}]');
       printWrapped(
           'PARAMS => ${options.queryParameters ?? 'NO QUERY PARAMETERS'}');
@@ -42,8 +41,7 @@ class CustomInterceptor extends InterceptorsWrapper {
     if (!kReleaseMode) {
       final request = response.request;
 
-      print(
-          '================= MEGALEIOS REPSONSE SUCCESS LOG =================');
+      print('=================  REPSONSE SUCCESS LOG =================');
       print('REQUEST <${request.baseUrl}${request.path}>[${request.method}]');
       print('STATUS CODE => ${response.statusCode}');
       printWrapped(
@@ -60,8 +58,7 @@ class CustomInterceptor extends InterceptorsWrapper {
       final request = err.request;
       final response = err.response;
 
-      print(
-          '================== MEGALEIOS REPSONSE ERROR LOG ==================');
+      print('==================  REPSONSE ERROR LOG ==================');
       print(
           'REQUEST <${request?.baseUrl}${request?.path}>[${request?.method}]');
       print('TYPE => ${err.type}');
