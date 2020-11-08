@@ -1,8 +1,10 @@
+import 'package:app_restaurant/app/network/custom_dio.dart';
+
 import '../models/category_model.dart';
 import 'package:dio/dio.dart';
 
 class CategoryRepository {
-  Dio _dio;
+  CustomDio _dio;
 
   CategoryRepository(
     this._dio,
@@ -10,8 +12,12 @@ class CategoryRepository {
 
   Future<List<CategoryModel>> getCategories() async {
     try {
-      var response =
-          _dio.get('https://developers.zomato.com/api/v2.1/categories');
-    } catch (e) {}
+      final response = await _dio.client.get('categories');
+      return (response.data['categories'] as List)
+          .map((child) => CategoryModel.fromJson(child))
+          .toList();
+    } on DioError catch (e) {
+      throw Exception(e);
+    }
   }
 }
