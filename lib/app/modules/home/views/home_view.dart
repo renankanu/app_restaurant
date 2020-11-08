@@ -12,7 +12,9 @@ class HomeView extends GetView<HomeController> {
             '',
             style: TextStyle(fontSize: 20),
           ),
-          Obx(() => Text(controller.isError.toString()))
+          Obx(() => Text(controller.categories.length > 0
+              ? controller.categories[0].categories.name
+              : ''))
         ],
       ),
     );
