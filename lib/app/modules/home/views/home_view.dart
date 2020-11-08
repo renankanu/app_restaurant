@@ -6,11 +6,14 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text(
-          controller.categories[0].categories.name,
-          style: TextStyle(fontSize: 20),
-        ),
+      body: Column(
+        children: [
+          Text(
+            '',
+            style: TextStyle(fontSize: 20),
+          ),
+          Obx(() => Text(controller.isError.toString()))
+        ],
       ),
     );
   }
