@@ -22,15 +22,19 @@ class HomeView extends GetView<HomeController> {
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Card(
-                          elevation: 5,
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 12),
-                            child: Center(
-                              child: Text(
-                                  controller.categories[index].categories.name),
-                            ),
-                          )),
+                      child: InkWell(
+                        onTap: () {},
+                        child: Card(
+                            elevation: 5,
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 12),
+                              child: Center(
+                                child: Text(controller
+                                    .categories[index].categories.name),
+                              ),
+                            )),
+                      ),
                     );
                   })),
             ),
