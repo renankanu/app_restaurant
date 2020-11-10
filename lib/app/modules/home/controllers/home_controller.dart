@@ -1,6 +1,5 @@
 import 'package:app_restaurant/app/models/category_model.dart';
 import 'package:app_restaurant/app/network/custom_exception.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/painting.dart';
 import 'package:get/get.dart';
 
