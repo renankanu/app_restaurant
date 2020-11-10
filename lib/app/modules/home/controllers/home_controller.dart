@@ -1,5 +1,6 @@
 import 'package:app_restaurant/app/models/category_model.dart';
 import 'package:app_restaurant/app/network/custom_exception.dart';
+import 'package:app_restaurant/app/utils/custom_snack_service.dart';
 import 'package:flutter/painting.dart';
 import 'package:get/get.dart';
 
@@ -27,10 +28,7 @@ class HomeController extends GetxController {
       final resultCategories = await _categoryRepository.getCategories();
       categories.addAll(resultCategories);
     } on CustomException catch (e) {
-      Get.snackbar('Kanu', '${e.message}',
-          colorText: Color(0xFFFFFFFF),
-          snackPosition: SnackPosition.BOTTOM,
-          backgroundColor: Color(0xFF000000));
+      CustomSnackService.createSnackError(e.message);
     }
   }
 

@@ -10,7 +10,7 @@ class CustomInterceptor extends InterceptorsWrapper {
 
   @override
   Future onRequest(RequestOptions options) async {
-    options.headers.addAll({"user-key": "654e34a33e59154da71b5143d5a4f1f2"});
+    options.headers.addAll({"user-key": "654e34a33e59154da71b5143d5a4f1f"});
 
     if (options.data != null && options.data is Map) {
       options.data.removeWhere((_, value) => value == null);
