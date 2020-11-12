@@ -9,10 +9,92 @@ class CoreView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: CustomColors.mountainMeadow,
+        backgroundColor: Colors.transparent,
       ),
-      backgroundColor: CustomColors.mountainMeadow,
-      body: CustomBase(),
+      backgroundColor: CustomColors.luckyPoint,
+      body: SingleChildScrollView(
+        child: CustomBase(
+          body: Column(
+            children: [
+              Container(
+                width: 100,
+                height: 100,
+                color: CustomColors.black,
+              ),
+              Container(
+                width: 100,
+                height: 100,
+                color: CustomColors.luckyPoint,
+              ),
+              Container(
+                width: 100,
+                height: 100,
+                color: CustomColors.black,
+              ),
+              Container(
+                width: 100,
+                height: 100,
+                color: CustomColors.luckyPoint,
+              ),
+              Container(
+                width: 100,
+                height: 100,
+                color: CustomColors.black,
+              ),
+              Container(
+                width: 100,
+                height: 100,
+                color: CustomColors.luckyPoint,
+              ),
+              Container(
+                width: 100,
+                height: 100,
+                color: CustomColors.black,
+              ),
+              Container(
+                width: 100,
+                height: 100,
+                color: CustomColors.luckyPoint,
+              ),
+              Container(
+                width: 100,
+                height: 100,
+                color: CustomColors.black,
+              ),
+              Container(
+                width: 100,
+                height: 100,
+                color: CustomColors.luckyPoint,
+              ),
+              Container(
+                width: 100,
+                height: 100,
+                color: CustomColors.black,
+              ),
+              Container(
+                width: 100,
+                height: 100,
+                color: CustomColors.luckyPoint,
+              ),
+              Container(
+                width: 100,
+                height: 100,
+                color: CustomColors.black,
+              ),
+              Container(
+                width: 100,
+                height: 100,
+                color: CustomColors.luckyPoint,
+              ),
+              Container(
+                width: 100,
+                height: 100,
+                color: CustomColors.black,
+              ),
+            ],
+          ),
+        ),
+      ),
       // bottomNavigationBar: CustomBottomBar(),
     );
   }
