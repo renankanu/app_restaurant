@@ -5,10 +5,6 @@ class CoreView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.red,
-      ),
       backgroundColor: Colors.white,
       bottomNavigationBar: CustomBottomBar(),
     );
