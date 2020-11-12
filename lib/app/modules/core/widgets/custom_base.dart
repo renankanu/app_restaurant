@@ -15,13 +15,13 @@ class CustomBase extends StatelessWidget {
         Positioned.fill(
           child: Container(
             decoration: BoxDecoration(
-              color: CustomColors.matisse,
+              color: CustomColors.white,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(40),
                 topRight: Radius.circular(40),
               ),
             ),
-            child: body,
+            child: SingleChildScrollView(child: body),
           ),
         ),
       ],

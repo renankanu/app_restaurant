@@ -11,88 +11,41 @@ class CoreView extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.transparent,
       ),
-      backgroundColor: CustomColors.luckyPoint,
-      body: SingleChildScrollView(
-        child: CustomBase(
-          body: Column(
-            children: [
-              Container(
-                width: 100,
-                height: 100,
-                color: CustomColors.black,
-              ),
-              Container(
-                width: 100,
-                height: 100,
-                color: CustomColors.luckyPoint,
-              ),
-              Container(
-                width: 100,
-                height: 100,
-                color: CustomColors.black,
-              ),
-              Container(
-                width: 100,
-                height: 100,
-                color: CustomColors.luckyPoint,
-              ),
-              Container(
-                width: 100,
-                height: 100,
-                color: CustomColors.black,
-              ),
-              Container(
-                width: 100,
-                height: 100,
-                color: CustomColors.luckyPoint,
-              ),
-              Container(
-                width: 100,
-                height: 100,
-                color: CustomColors.black,
-              ),
-              Container(
-                width: 100,
-                height: 100,
-                color: CustomColors.luckyPoint,
-              ),
-              Container(
-                width: 100,
-                height: 100,
-                color: CustomColors.black,
-              ),
-              Container(
-                width: 100,
-                height: 100,
-                color: CustomColors.luckyPoint,
-              ),
-              Container(
-                width: 100,
-                height: 100,
-                color: CustomColors.black,
-              ),
-              Container(
-                width: 100,
-                height: 100,
-                color: CustomColors.luckyPoint,
-              ),
-              Container(
-                width: 100,
-                height: 100,
-                color: CustomColors.black,
-              ),
-              Container(
-                width: 100,
-                height: 100,
-                color: CustomColors.luckyPoint,
-              ),
-              Container(
-                width: 100,
-                height: 100,
-                color: CustomColors.black,
-              ),
-            ],
-          ),
+      backgroundColor: Colors.red,
+      body: CustomBase(
+        body: Column(
+          children: [
+            Container(
+              width: 100,
+              height: 100,
+              color: CustomColors.black,
+            ),
+            Container(
+              width: 100,
+              height: 100,
+              color: CustomColors.luckyPoint,
+            ),
+            Container(
+              width: 100,
+              height: 100,
+              color: CustomColors.black,
+            ),
+            Container(
+              width: 100,
+              height: 100,
+              color: CustomColors.luckyPoint,
+            ),
+            Container(
+              width: 100,
+              height: 100,
+              color: CustomColors.black,
+            ),
+            Container(
+              width: 100,
+              height: 100,
+              color: CustomColors.luckyPoint,
+            ),
+          ],
         ),
       ),
       // bottomNavigationBar: CustomBottomBar(),
