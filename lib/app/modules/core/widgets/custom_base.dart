@@ -10,18 +10,21 @@ class CustomBase extends StatelessWidget {
     return Stack(
       children: [
         Container(
+          height: 100,
           color: Colors.red,
         ),
         Positioned.fill(
-          child: Container(
-            decoration: BoxDecoration(
-              color: CustomColors.white,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(40),
-                topRight: Radius.circular(40),
+          child: SingleChildScrollView(
+            child: Container(
+              decoration: BoxDecoration(
+                color: CustomColors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(40),
+                  topRight: Radius.circular(40),
+                ),
               ),
+              child: body,
             ),
-            child: SingleChildScrollView(child: body),
           ),
         ),
       ],

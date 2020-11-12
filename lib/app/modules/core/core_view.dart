@@ -9,44 +9,103 @@ class CoreView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.red,
       ),
-      backgroundColor: Colors.red,
-      body: CustomBase(
-        body: Column(
-          children: [
-            Container(
-              width: 100,
-              height: 100,
-              color: CustomColors.black,
+      backgroundColor: Colors.white,
+      body: Stack(
+        children: [
+          Positioned.fill(
+            top: 50,
+            child: CustomBase(
+              body: Column(
+                children: [
+                  Container(
+                    width: 100,
+                    height: 100,
+                    color: CustomColors.black,
+                  ),
+                  Container(
+                    width: 100,
+                    height: 100,
+                    color: CustomColors.luckyPoint,
+                  ),
+                  Container(
+                    width: 100,
+                    height: 100,
+                    color: CustomColors.black,
+                  ),
+                  Container(
+                    width: 100,
+                    height: 100,
+                    color: CustomColors.luckyPoint,
+                  ),
+                  Container(
+                    width: 100,
+                    height: 100,
+                    color: CustomColors.black,
+                  ),
+                  Container(
+                    width: 100,
+                    height: 100,
+                    color: CustomColors.luckyPoint,
+                  ),
+                  Container(
+                    width: 100,
+                    height: 100,
+                    color: CustomColors.black,
+                  ),
+                  Container(
+                    width: 100,
+                    height: 100,
+                    color: CustomColors.luckyPoint,
+                  ),
+                  Container(
+                    width: 100,
+                    height: 100,
+                    color: CustomColors.black,
+                  ),
+                  Container(
+                    width: 100,
+                    height: 100,
+                    color: CustomColors.luckyPoint,
+                  ),
+                  Container(
+                    width: 100,
+                    height: 100,
+                    color: CustomColors.black,
+                  ),
+                  Container(
+                    width: 100,
+                    height: 100,
+                    color: CustomColors.luckyPoint,
+                  ),
+                  Container(
+                    width: 100,
+                    height: 100,
+                    color: CustomColors.black,
+                  ),
+                  Container(
+                    width: 100,
+                    height: 100,
+                    color: CustomColors.luckyPoint,
+                  ),
+                ],
+              ),
             ),
-            Container(
-              width: 100,
-              height: 100,
-              color: CustomColors.luckyPoint,
+          ),
+          Positioned(
+            left: 0,
+            right: 0,
+            child: Align(
+              alignment: Alignment.topCenter,
+              child: Container(
+                width: 100,
+                height: 100,
+                color: CustomColors.linkWater,
+              ),
             ),
-            Container(
-              width: 100,
-              height: 100,
-              color: CustomColors.black,
-            ),
-            Container(
-              width: 100,
-              height: 100,
-              color: CustomColors.luckyPoint,
-            ),
-            Container(
-              width: 100,
-              height: 100,
-              color: CustomColors.black,
-            ),
-            Container(
-              width: 100,
-              height: 100,
-              color: CustomColors.luckyPoint,
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
       // bottomNavigationBar: CustomBottomBar(),
     );
