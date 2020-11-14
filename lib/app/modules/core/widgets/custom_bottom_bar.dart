@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../../utils/custom_colors.dart';
 
 class CustomBottomBar extends StatefulWidget {
   final int defaultSelectedIndex;
   final Function(int) onChange;
-  final List<IconData> iconList;
+  final List<String> iconList;
 
   const CustomBottomBar(
       {this.defaultSelectedIndex = 0,
@@ -18,7 +19,7 @@ class CustomBottomBar extends StatefulWidget {
 
 class _CustomBottomBarState extends State<CustomBottomBar> {
   int _selectedIndex = 0;
-  List<IconData> _iconList = [];
+  List<String> _iconList = [];
 
   @override
   void initState() {
@@ -50,7 +51,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
     );
   }
 
-  Widget buildNavBarItem(IconData icon, int index) {
+  Widget buildNavBarItem(String icon, int index) {
     return GestureDetector(
       onTap: () {
         widget.onChange(index);
@@ -79,13 +80,10 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
                 ),
               ),
             ),
-            Positioned(
-              top: 0,
-              right: 0,
-              bottom: 0,
-              left: 0,
-              child: Icon(
+            Center(
+              child: SvgPicture.asset(
                 icon,
+                width: 36,
                 color: index == _selectedIndex
                     ? CustomColors.persimmon
                     : CustomColors.linkWater,

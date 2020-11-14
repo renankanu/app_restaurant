@@ -22,8 +22,8 @@ class _CoreViewState extends State<CoreView> {
       // body: getPage[_selectedItem],
       bottomNavigationBar: CustomBottomBar(
         iconList: [
-          Icons.home,
-          Icons.food_bank,
+          'assets/icons/fork.svg',
+          'assets/icons/hat.svg',
         ],
         onChange: (val) {
           setState(() {
