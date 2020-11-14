@@ -19,14 +19,11 @@ class _CoreViewState extends State<CoreView> {
         brightness: Brightness.light,
       ),
       backgroundColor: Colors.white,
-      body: getPage[_selectedItem],
+      // body: getPage[_selectedItem],
       bottomNavigationBar: CustomBottomBar(
         iconList: [
           Icons.home,
           Icons.card_giftcard,
-          Icons.camera,
-          Icons.pie_chart,
-          Icons.person,
         ],
         onChange: (val) {
           setState(() {
