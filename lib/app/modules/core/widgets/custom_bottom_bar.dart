@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../utils/custom_colors.dart';
-import '../../../utils/custom_colors.dart';
 
 class CustomBottomBar extends StatefulWidget {
   final int defaultSelectedIndex;
@@ -52,28 +51,45 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
   }
 
   Widget buildNavBarItem(IconData icon, int index) {
-    return Container(
-      child: GestureDetector(
-        onTap: () {
-          widget.onChange(index);
-          setState(() {
-            _selectedIndex = index;
-          });
-        },
-        child: Container(
-          height: 60,
-          width: MediaQuery.of(context).size.width / _iconList.length,
-          decoration: index == _selectedIndex
-              ? BoxDecoration(
-                  border: Border(
-                    top: BorderSide(width: 4, color: CustomColors.persimmon),
+    return GestureDetector(
+      onTap: () {
+        widget.onChange(index);
+        setState(() {
+          _selectedIndex = index;
+        });
+      },
+      child: Container(
+        height: 60,
+        width: MediaQuery.of(context).size.width / _iconList.length,
+        child: Stack(
+          children: [
+            Visibility(
+              visible: index == _selectedIndex,
+              child: Positioned(
+                right: 0,
+                left: 0,
+                child: Container(
+                  child: Center(
+                    child: Container(
+                      width: 80,
+                      height: 4,
+                      color: CustomColors.matisse,
+                    ),
                   ),
-                )
-              : BoxDecoration(),
-          child: Icon(
-            icon,
-            color: index == _selectedIndex ? Colors.black : Colors.grey,
-          ),
+                ),
+              ),
+            ),
+            Positioned(
+              top: 0,
+              right: 0,
+              bottom: 0,
+              left: 0,
+              child: Icon(
+                icon,
+                color: index == _selectedIndex ? Colors.black : Colors.grey,
+              ),
+            ),
+          ],
         ),
       ),
     );
