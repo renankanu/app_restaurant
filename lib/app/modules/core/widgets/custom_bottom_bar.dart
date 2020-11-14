@@ -73,7 +73,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
                     child: Container(
                       width: 80,
                       height: 4,
-                      color: CustomColors.matisse,
+                      color: CustomColors.persimmon,
                     ),
                   ),
                 ),
@@ -86,7 +86,9 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
               left: 0,
               child: Icon(
                 icon,
-                color: index == _selectedIndex ? Colors.black : Colors.grey,
+                color: index == _selectedIndex
+                    ? CustomColors.persimmon
+                    : CustomColors.linkWater,
               ),
             ),
           ],

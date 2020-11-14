@@ -23,7 +23,7 @@ class _CoreViewState extends State<CoreView> {
       bottomNavigationBar: CustomBottomBar(
         iconList: [
           Icons.home,
-          Icons.card_giftcard,
+          Icons.food_bank,
         ],
         onChange: (val) {
           setState(() {
