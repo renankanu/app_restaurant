@@ -1,4 +1,4 @@
-import 'package:app_restaurant/app/bindings/aplication_binding.dart';
+import 'package:app_restaurant/aplication_binding.dart';
 import 'package:app_restaurant/environment_badge.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

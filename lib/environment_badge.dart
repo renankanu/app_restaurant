@@ -6,7 +6,8 @@ class EnvironmentsBadge extends StatelessWidget {
   EnvironmentsBadge({@required this.child});
   @override
   Widget build(BuildContext context) {
-    var env = ConfigEnvironments.getEnvironments()['env'];
+    var env =
+        ConfigEnvironments.getEnvironments(Environments.PRODUCTION)['env'];
     return env != Environments.PRODUCTION
         ? Banner(
             location: BannerLocation.topStart,

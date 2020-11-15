@@ -5,7 +5,7 @@ class Environments {
 }
 
 class ConfigEnvironments {
-  static final String _currentEnvironments = Environments.PRODUCTION;
+  static final String _currentEnvironments = Environments.HML;
   static List<Map<String, String>> _availableEnvironments = [
     {
       'env': Environments.DEV,
@@ -21,9 +21,9 @@ class ConfigEnvironments {
     },
   ];
 
-  static Map<String, String> getEnvironments() {
+  static Map<String, String> getEnvironments(env) {
     return _availableEnvironments.firstWhere(
-      (d) => d['env'] == _currentEnvironments,
+      (d) => d['env'] == env,
     );
   }
 }

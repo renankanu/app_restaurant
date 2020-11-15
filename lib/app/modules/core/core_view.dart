@@ -1,24 +1,9 @@
+import 'package:app_restaurant/app/modules/core/controllers/core_controller.dart';
 import 'package:app_restaurant/app/modules/core/widgets/custom_bottom_bar.dart';
-import 'package:app_restaurant/app/modules/detail/views/detail_view.dart';
-import 'package:app_restaurant/app/modules/home/views/home_view.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 
-class CoreView extends StatefulWidget {
-  @override
-  _CoreViewState createState() => _CoreViewState();
-}
-
-class _CoreViewState extends State<CoreView> {
-  int _selectedItem = 0;
-  List<Widget> getPage = [HomeView(), DetailView()];
-  final pageViewController = PageController();
-
-  @override
-  void initState() {
-    super.initState();
-    pageViewController.dispose();
-  }
-
+class CoreView extends GetView<CoreController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,16 +13,14 @@ class _CoreViewState extends State<CoreView> {
         brightness: Brightness.light,
       ),
       backgroundColor: Colors.white,
-      body: getPage[_selectedItem],
+      body: Obx(() => controller.getPage[controller.selectedItem.value]),
       bottomNavigationBar: CustomBottomBar(
         iconList: [
           'assets/icons/fork.svg',
           'assets/icons/hat.svg',
         ],
         onChange: (val) {
-          setState(() {
-            _selectedItem = val;
-          });
+          controller.changeIndexPage(val);
         },
         defaultSelectedIndex: 0,
       ),
