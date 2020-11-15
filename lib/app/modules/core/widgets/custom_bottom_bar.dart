@@ -83,21 +83,22 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
                   transitionBuilder: (child, animation) {
                     return SlideTransition(
                       position: Tween<Offset>(
-                        begin: const Offset(0.0, 1.0),
+                        begin: const Offset(0.0, 0.5),
                         end: Offset.zero,
                       ).animate(animation),
                       child: child,
                     );
                   },
-                  duration: Duration(milliseconds: 500),
-                  reverseDuration: Duration(milliseconds: 200),
+                  duration: Duration(milliseconds: 100),
+                  reverseDuration: Duration(milliseconds: 100),
                   child: index == _selectedIndex
                       ? Container(
+                          key: UniqueKey(),
                           width: 80,
                           height: 4,
                           color: CustomColors.persimmon,
                         )
-                      : Text(''),
+                      : Container(key: UniqueKey()),
                 ),
               ),
               Center(
