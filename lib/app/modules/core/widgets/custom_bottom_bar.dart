@@ -52,44 +52,65 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
   }
 
   Widget buildNavBarItem(String icon, int index) {
-    return GestureDetector(
-      onTap: () {
-        widget.onChange(index);
-        setState(() {
-          _selectedIndex = index;
-        });
+    return AnimatedSwitcher(
+      transitionBuilder: (child, animation) {
+        return SlideTransition(
+          position: Tween<Offset>(
+            begin: const Offset(0.0, 1.0),
+            end: Offset.zero,
+          ).animate(animation),
+          child: child,
+        );
       },
-      child: Container(
-        height: 60,
-        width: MediaQuery.of(context).size.width / _iconList.length,
-        child: Stack(
-          children: [
-            Visibility(
-              visible: index == _selectedIndex,
-              child: Positioned(
-                right: 0,
+      duration: Duration(milliseconds: 500),
+      reverseDuration: Duration(milliseconds: 200),
+      child: GestureDetector(
+        onTap: () {
+          widget.onChange(index);
+          setState(() {
+            _selectedIndex = index;
+          });
+        },
+        child: Container(
+          height: 60,
+          width: MediaQuery.of(context).size.width / _iconList.length,
+          child: Stack(
+            children: [
+              Positioned(
                 left: 0,
-                child: Container(
-                  child: Center(
-                    child: Container(
-                      width: 80,
-                      height: 4,
-                      color: CustomColors.persimmon,
-                    ),
-                  ),
+                right: 0,
+                child: AnimatedSwitcher(
+                  transitionBuilder: (child, animation) {
+                    return SlideTransition(
+                      position: Tween<Offset>(
+                        begin: const Offset(0.0, 1.0),
+                        end: Offset.zero,
+                      ).animate(animation),
+                      child: child,
+                    );
+                  },
+                  duration: Duration(milliseconds: 500),
+                  reverseDuration: Duration(milliseconds: 200),
+                  child: index == _selectedIndex
+                      ? Container(
+                          width: 80,
+                          height: 4,
+                          color: CustomColors.persimmon,
+                        )
+                      : Text(''),
                 ),
               ),
-            ),
-            Center(
-              child: SvgPicture.asset(
-                icon,
-                width: 36,
-                color: index == _selectedIndex
-                    ? CustomColors.persimmon
-                    : CustomColors.linkWater,
+              Center(
+                child: SvgPicture.asset(
+                  icon,
+                  width: 36,
+                  color: index == _selectedIndex
+                      ? CustomColors.persimmon
+                      : CustomColors.linkWater,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
