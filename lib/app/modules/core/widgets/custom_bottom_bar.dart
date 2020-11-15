@@ -80,17 +80,12 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
                 left: 0,
                 right: 0,
                 child: AnimatedSwitcher(
+                  switchInCurve: Curves.bounceIn,
+                  switchOutCurve: Curves.bounceInOut,
                   transitionBuilder: (child, animation) {
-                    return SlideTransition(
-                      position: Tween<Offset>(
-                        begin: const Offset(0.0, 0.5),
-                        end: Offset.zero,
-                      ).animate(animation),
-                      child: child,
-                    );
+                    return ScaleTransition(scale: animation, child: child);
                   },
-                  duration: Duration(milliseconds: 100),
-                  reverseDuration: Duration(milliseconds: 100),
+                  duration: Duration(milliseconds: 200),
                   child: index == _selectedIndex
                       ? Container(
                           key: UniqueKey(),
