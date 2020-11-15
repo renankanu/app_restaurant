@@ -1,10 +1,13 @@
+import 'package:app_restaurant/app/repositories/category_repository.dart';
 import 'package:app_restaurant/app/utils/custom_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:app_restaurant/app/modules/home/controllers/home_controller.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HomeView extends GetView<HomeController> {
+class HomeView extends StatelessWidget {
+  final CategoryRepository repositort = Get.put(CategoryRepository(Get.find()));
+  final HomeController controller = Get.put(HomeController(Get.find()));
   @override
   Widget build(BuildContext context) {
     return Scaffold(
