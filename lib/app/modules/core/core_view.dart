@@ -1,4 +1,5 @@
 import 'package:app_restaurant/app/modules/core/widgets/custom_bottom_bar.dart';
+import 'package:app_restaurant/app/modules/detail/views/detail_view.dart';
 import 'package:app_restaurant/app/modules/home/views/home_view.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +10,15 @@ class CoreView extends StatefulWidget {
 
 class _CoreViewState extends State<CoreView> {
   int _selectedItem = 0;
-  List<Widget> getPage = [HomeView()];
+  List<Widget> getPage = [HomeView(), DetailView()];
+  final pageViewController = PageController();
+
+  @override
+  void initState() {
+    super.initState();
+    pageViewController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +28,7 @@ class _CoreViewState extends State<CoreView> {
         brightness: Brightness.light,
       ),
       backgroundColor: Colors.white,
-      // body: getPage[_selectedItem],
+      body: getPage[_selectedItem],
       bottomNavigationBar: CustomBottomBar(
         iconList: [
           'assets/icons/fork.svg',
@@ -30,7 +39,7 @@ class _CoreViewState extends State<CoreView> {
             _selectedItem = val;
           });
         },
-        defaultSelectedIndex: 1,
+        defaultSelectedIndex: 0,
       ),
     );
   }
