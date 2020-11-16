@@ -18,6 +18,7 @@ class HomeController extends GetxController {
 
   @override
   void onReady() {
+    print('ready');
     super.onReady();
   }
 
