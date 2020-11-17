@@ -1,7 +1,7 @@
+import 'package:app_restaurant/app/models/category_model.dart';
 import 'package:app_restaurant/app/network/custom_dio.dart';
 import 'package:app_restaurant/app/network/custom_exception.dart';
 
-import '../models/category_model.dart';
 import 'package:dio/dio.dart';
 
 class CategoryRepository {

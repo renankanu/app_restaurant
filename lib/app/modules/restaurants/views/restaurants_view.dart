@@ -1,8 +1,13 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart'; 
 import 'package:app_restaurant/app/modules/restaurants/controllers/restaurants_controller.dart';
+import 'package:app_restaurant/app/repositories/restaurant_repository.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class RestaurantsView extends GetView<RestaurantsController> {
+class RestaurantsView extends StatelessWidget {
+  final RestaurantRepository restaurantRepository =
+      Get.put(RestaurantRepository(Get.find()));
+  final RestaurantsController controller =
+      Get.put(RestaurantsController(Get.find()));
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,11 +17,10 @@ class RestaurantsView extends GetView<RestaurantsController> {
       ),
       body: Center(
         child: Text(
-          'RestaurantsView is working', 
-          style: TextStyle(fontSize:20),
+          'RestaurantsView is working',
+          style: TextStyle(fontSize: 20),
         ),
       ),
     );
   }
 }
-  
