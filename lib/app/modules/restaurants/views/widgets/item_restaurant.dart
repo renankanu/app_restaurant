@@ -12,7 +12,20 @@ class ItemRestaurant extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
-          child: Text(restaurantModel.restaurant.name),
+          child: Row(
+            children: [
+              Container(
+                width: 100,
+                height: 100,
+                child: Visibility(
+                  visible: restaurantModel.restaurant.thumb != "",
+                  child: Image.network(restaurantModel.restaurant.thumb),
+                  replacement: Image.asset('assets/images/no_image.png'),
+                ),
+              ),
+              Text(restaurantModel.restaurant.name),
+            ],
+          ),
         ),
       ),
     );
