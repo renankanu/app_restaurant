@@ -3,6 +3,8 @@ import 'package:app_restaurant/app/repositories/restaurant_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'widgets/item_restaurant.dart';
+
 class RestaurantsView extends StatelessWidget {
   final RestaurantRepository restaurantRepository =
       Get.put(RestaurantRepository(Get.find()));
@@ -11,12 +13,23 @@ class RestaurantsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.builder(
-        itemCount: controller.restaurants.length,
-        shrinkWrap: true,
-        itemBuilder: (context, index) {
-          return Text(controller.restaurants[index].restaurant.name);
-        },
+      body: SafeArea(
+        child: Column(
+          children: [
+            Text('Restaurants'),
+            Obx(() => Expanded(
+                  child: ListView.builder(
+                    itemCount: controller.restaurants.length,
+                    shrinkWrap: true,
+                    itemBuilder: (context, index) {
+                      return ItemRestaurant(
+                        restaurantModel: controller.restaurants[index],
+                      );
+                    },
+                  ),
+                )),
+          ],
+        ),
       ),
     );
   }
