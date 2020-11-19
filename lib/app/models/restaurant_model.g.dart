@@ -8,67 +8,140 @@ part of 'restaurant_model.dart';
 
 RestaurantModel _$RestaurantModelFromJson(Map<String, dynamic> json) {
   return RestaurantModel(
+    restaurant: json['restaurant'] == null
+        ? null
+        : Restaurant.fromJson(json['restaurant'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$RestaurantModelToJson(RestaurantModel instance) =>
+    <String, dynamic>{
+      'restaurant': instance.restaurant,
+    };
+
+Restaurant _$RestaurantFromJson(Map<String, dynamic> json) {
+  return Restaurant(
+    r: json['r'] == null ? null : R.fromJson(json['r'] as Map<String, dynamic>),
+    apikey: json['apikey'] as String,
     id: json['id'] as String,
     name: json['name'] as String,
     url: json['url'] as String,
     location: json['location'] == null
         ? null
         : Location.fromJson(json['location'] as Map<String, dynamic>),
-    averageCostForTwo: json['averageCostForTwo'] as String,
-    priceRange: json['priceRange'] as String,
+    switchToOrderMenu: json['switchToOrderMenu'] as int,
+    cuisines: json['cuisines'] as String,
+    timings: json['timings'] as String,
+    averageCostForTwo: json['averageCostForTwo'] as int,
+    priceRange: json['priceRange'] as int,
     currency: json['currency'] as String,
+    highlights: (json['highlights'] as List)?.map((e) => e as String)?.toList(),
+    offers: json['offers'] as List,
+    opentableSupport: json['opentableSupport'] as int,
+    isZomatoBookRes: json['isZomatoBookRes'] as int,
+    mezzoProvider: json['mezzoProvider'] as String,
+    isBookFormWebView: json['isBookFormWebView'] as int,
+    bookFormWebViewUrl: json['bookFormWebViewUrl'] as String,
+    bookAgainUrl: json['bookAgainUrl'] as String,
     thumb: json['thumb'] as String,
-    featuredImage: json['featuredImage'] as String,
-    photosUrl: json['photosUrl'] as String,
-    menuUrl: json['menuUrl'] as String,
-    eventsUrl: json['eventsUrl'] as String,
     userRating: json['userRating'] == null
         ? null
         : UserRating.fromJson(json['userRating'] as Map<String, dynamic>),
-    hasOnlineDelivery: json['hasOnlineDelivery'] as String,
-    isDeliveringNow: json['isDeliveringNow'] as String,
-    hasTableBooking: json['hasTableBooking'] as String,
+    allReviewsCount: json['allReviewsCount'] as int,
+    photosUrl: json['photosUrl'] as String,
+    photoCount: json['photoCount'] as int,
+    menuUrl: json['menuUrl'] as String,
+    featuredImage: json['featuredImage'] as String,
+    hasOnlineDelivery: json['hasOnlineDelivery'] as int,
+    isDeliveringNow: json['isDeliveringNow'] as int,
+    storeType: json['storeType'] as String,
+    includeBogoOffers: json['includeBogoOffers'] as bool,
     deeplink: json['deeplink'] as String,
-    cuisines: json['cuisines'] as String,
-    allReviewsCount: json['allReviewsCount'] as String,
-    photoCount: json['photoCount'] as String,
+    isTableReservationSupported: json['isTableReservationSupported'] as int,
+    hasTableBooking: json['hasTableBooking'] as int,
+    eventsUrl: json['eventsUrl'] as String,
     phoneNumbers: json['phoneNumbers'] as String,
-    photos: (json['photos'] as List)
-        ?.map((e) =>
-            e == null ? null : Photos.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
-    allReviews: (json['allReviews'] as List)
-        ?.map((e) =>
-            e == null ? null : AllReviews.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    allReviews: json['allReviews'] == null
+        ? null
+        : AllReviews.fromJson(json['allReviews'] as Map<String, dynamic>),
+    establishment:
+        (json['establishment'] as List)?.map((e) => e as String)?.toList(),
+    establishmentTypes: json['establishmentTypes'] as List,
+    medioProvider: json['medioProvider'] as int,
   );
 }
 
-Map<String, dynamic> _$RestaurantModelToJson(RestaurantModel instance) =>
+Map<String, dynamic> _$RestaurantToJson(Restaurant instance) =>
     <String, dynamic>{
+      'r': instance.r,
+      'apikey': instance.apikey,
       'id': instance.id,
       'name': instance.name,
       'url': instance.url,
       'location': instance.location,
+      'switchToOrderMenu': instance.switchToOrderMenu,
+      'cuisines': instance.cuisines,
+      'timings': instance.timings,
       'averageCostForTwo': instance.averageCostForTwo,
       'priceRange': instance.priceRange,
       'currency': instance.currency,
+      'highlights': instance.highlights,
+      'offers': instance.offers,
+      'opentableSupport': instance.opentableSupport,
+      'isZomatoBookRes': instance.isZomatoBookRes,
+      'mezzoProvider': instance.mezzoProvider,
+      'isBookFormWebView': instance.isBookFormWebView,
+      'bookFormWebViewUrl': instance.bookFormWebViewUrl,
+      'bookAgainUrl': instance.bookAgainUrl,
       'thumb': instance.thumb,
-      'featuredImage': instance.featuredImage,
-      'photosUrl': instance.photosUrl,
-      'menuUrl': instance.menuUrl,
-      'eventsUrl': instance.eventsUrl,
       'userRating': instance.userRating,
+      'allReviewsCount': instance.allReviewsCount,
+      'photosUrl': instance.photosUrl,
+      'photoCount': instance.photoCount,
+      'menuUrl': instance.menuUrl,
+      'featuredImage': instance.featuredImage,
       'hasOnlineDelivery': instance.hasOnlineDelivery,
       'isDeliveringNow': instance.isDeliveringNow,
-      'hasTableBooking': instance.hasTableBooking,
+      'storeType': instance.storeType,
+      'includeBogoOffers': instance.includeBogoOffers,
       'deeplink': instance.deeplink,
-      'cuisines': instance.cuisines,
-      'allReviewsCount': instance.allReviewsCount,
-      'photoCount': instance.photoCount,
+      'isTableReservationSupported': instance.isTableReservationSupported,
+      'hasTableBooking': instance.hasTableBooking,
+      'eventsUrl': instance.eventsUrl,
       'phoneNumbers': instance.phoneNumbers,
-      'photos': instance.photos,
       'allReviews': instance.allReviews,
+      'establishment': instance.establishment,
+      'establishmentTypes': instance.establishmentTypes,
+      'medioProvider': instance.medioProvider,
+    };
+
+R _$RFromJson(Map<String, dynamic> json) {
+  return R(
+    resId: json['resId'] as int,
+    isGroceryStore: json['isGroceryStore'] as bool,
+    hasMenuStatus: json['hasMenuStatus'] == null
+        ? null
+        : HasMenuStatus.fromJson(json['hasMenuStatus'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$RToJson(R instance) => <String, dynamic>{
+      'resId': instance.resId,
+      'isGroceryStore': instance.isGroceryStore,
+      'hasMenuStatus': instance.hasMenuStatus,
+    };
+
+HasMenuStatus _$HasMenuStatusFromJson(Map<String, dynamic> json) {
+  return HasMenuStatus(
+    delivery: json['delivery'] as int,
+    takeaway: json['takeaway'] as int,
+  );
+}
+
+Map<String, dynamic> _$HasMenuStatusToJson(HasMenuStatus instance) =>
+    <String, dynamic>{
+      'delivery': instance.delivery,
+      'takeaway': instance.takeaway,
     };
 
 Location _$LocationFromJson(Map<String, dynamic> json) {
@@ -76,10 +149,12 @@ Location _$LocationFromJson(Map<String, dynamic> json) {
     address: json['address'] as String,
     locality: json['locality'] as String,
     city: json['city'] as String,
+    cityId: json['cityId'] as int,
     latitude: json['latitude'] as String,
     longitude: json['longitude'] as String,
     zipcode: json['zipcode'] as String,
-    countryId: json['countryId'] as String,
+    countryId: json['countryId'] as int,
+    localityVerbose: json['localityVerbose'] as String,
   );
 }
 
@@ -87,10 +162,12 @@ Map<String, dynamic> _$LocationToJson(Location instance) => <String, dynamic>{
       'address': instance.address,
       'locality': instance.locality,
       'city': instance.city,
+      'cityId': instance.cityId,
       'latitude': instance.latitude,
       'longitude': instance.longitude,
       'zipcode': instance.zipcode,
       'countryId': instance.countryId,
+      'localityVerbose': instance.localityVerbose,
     };
 
 UserRating _$UserRatingFromJson(Map<String, dynamic> json) {
@@ -98,7 +175,13 @@ UserRating _$UserRatingFromJson(Map<String, dynamic> json) {
     aggregateRating: json['aggregateRating'] as String,
     ratingText: json['ratingText'] as String,
     ratingColor: json['ratingColor'] as String,
-    votes: json['votes'] as String,
+    ratingObj: json['ratingObj'] == null
+        ? null
+        : RatingObj.fromJson(json['ratingObj'] as Map<String, dynamic>),
+    votes: json['votes'] as int,
+    customRatingText: json['customRatingText'] as String,
+    customRatingTextBackground: json['customRatingTextBackground'] as String,
+    ratingToolTip: json['ratingToolTip'] as String,
   );
 }
 
@@ -107,94 +190,71 @@ Map<String, dynamic> _$UserRatingToJson(UserRating instance) =>
       'aggregateRating': instance.aggregateRating,
       'ratingText': instance.ratingText,
       'ratingColor': instance.ratingColor,
+      'ratingObj': instance.ratingObj,
       'votes': instance.votes,
+      'customRatingText': instance.customRatingText,
+      'customRatingTextBackground': instance.customRatingTextBackground,
+      'ratingToolTip': instance.ratingToolTip,
     };
 
-Photos _$PhotosFromJson(Map<String, dynamic> json) {
-  return Photos(
-    id: json['id'] as String,
-    url: json['url'] as String,
-    thumbUrl: json['thumbUrl'] as String,
-    user: json['user'] == null
+RatingObj _$RatingObjFromJson(Map<String, dynamic> json) {
+  return RatingObj(
+    title: json['title'] == null
         ? null
-        : User.fromJson(json['user'] as Map<String, dynamic>),
-    resId: json['resId'] as String,
-    caption: json['caption'] as String,
-    timestamp: json['timestamp'] as String,
-    friendlyTime: json['friendlyTime'] as String,
-    width: json['width'] as String,
-    height: json['height'] as String,
-    commentsCount: json['commentsCount'] as String,
-    likesCount: json['likesCount'] as String,
+        : Title.fromJson(json['title'] as Map<String, dynamic>),
+    bgColor: json['bgColor'] == null
+        ? null
+        : BgColor.fromJson(json['bgColor'] as Map<String, dynamic>),
   );
 }
 
-Map<String, dynamic> _$PhotosToJson(Photos instance) => <String, dynamic>{
-      'id': instance.id,
-      'url': instance.url,
-      'thumbUrl': instance.thumbUrl,
-      'user': instance.user,
-      'resId': instance.resId,
-      'caption': instance.caption,
-      'timestamp': instance.timestamp,
-      'friendlyTime': instance.friendlyTime,
-      'width': instance.width,
-      'height': instance.height,
-      'commentsCount': instance.commentsCount,
-      'likesCount': instance.likesCount,
+Map<String, dynamic> _$RatingObjToJson(RatingObj instance) => <String, dynamic>{
+      'title': instance.title,
+      'bgColor': instance.bgColor,
     };
 
-User _$UserFromJson(Map<String, dynamic> json) {
-  return User(
-    name: json['name'] as String,
-    zomatoHandle: json['zomatoHandle'] as String,
-    foodieLevel: json['foodieLevel'] as String,
-    foodieLevelNum: json['foodieLevelNum'] as String,
-    foodieColor: json['foodieColor'] as String,
-    profileUrl: json['profileUrl'] as String,
-    profileDeeplink: json['profileDeeplink'] as String,
-    profileImage: json['profileImage'] as String,
+Title _$TitleFromJson(Map<String, dynamic> json) {
+  return Title(
+    text: json['text'] as String,
   );
 }
 
-Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
-      'name': instance.name,
-      'zomatoHandle': instance.zomatoHandle,
-      'foodieLevel': instance.foodieLevel,
-      'foodieLevelNum': instance.foodieLevelNum,
-      'foodieColor': instance.foodieColor,
-      'profileUrl': instance.profileUrl,
-      'profileDeeplink': instance.profileDeeplink,
-      'profileImage': instance.profileImage,
+Map<String, dynamic> _$TitleToJson(Title instance) => <String, dynamic>{
+      'text': instance.text,
+    };
+
+BgColor _$BgColorFromJson(Map<String, dynamic> json) {
+  return BgColor(
+    type: json['type'] as String,
+    tint: json['tint'] as String,
+  );
+}
+
+Map<String, dynamic> _$BgColorToJson(BgColor instance) => <String, dynamic>{
+      'type': instance.type,
+      'tint': instance.tint,
     };
 
 AllReviews _$AllReviewsFromJson(Map<String, dynamic> json) {
   return AllReviews(
-    rating: json['rating'] as String,
-    reviewText: json['reviewText'] as String,
-    id: json['id'] as String,
-    ratingColor: json['ratingColor'] as String,
-    reviewTimeFriendly: json['reviewTimeFriendly'] as String,
-    ratingText: json['ratingText'] as String,
-    timestamp: json['timestamp'] as String,
-    likes: json['likes'] as String,
-    user: json['user'] == null
-        ? null
-        : User.fromJson(json['user'] as Map<String, dynamic>),
-    commentsCount: json['commentsCount'] as String,
+    reviews: (json['reviews'] as List)
+        ?.map((e) =>
+            e == null ? null : Reviews.fromJson(e as Map<String, dynamic>))
+        ?.toList(),
   );
 }
 
 Map<String, dynamic> _$AllReviewsToJson(AllReviews instance) =>
     <String, dynamic>{
-      'rating': instance.rating,
-      'reviewText': instance.reviewText,
-      'id': instance.id,
-      'ratingColor': instance.ratingColor,
-      'reviewTimeFriendly': instance.reviewTimeFriendly,
-      'ratingText': instance.ratingText,
-      'timestamp': instance.timestamp,
-      'likes': instance.likes,
-      'user': instance.user,
-      'commentsCount': instance.commentsCount,
+      'reviews': instance.reviews,
+    };
+
+Reviews _$ReviewsFromJson(Map<String, dynamic> json) {
+  return Reviews(
+    review: json['review'] as List,
+  );
+}
+
+Map<String, dynamic> _$ReviewsToJson(Reviews instance) => <String, dynamic>{
+      'review': instance.review,
     };

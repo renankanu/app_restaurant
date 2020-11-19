@@ -7,11 +7,6 @@ class CoreView extends GetView<CoreController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        brightness: Brightness.light,
-      ),
       backgroundColor: Colors.white,
       body: Obx(() => controller.getPage[controller.selectedItem.value]),
       bottomNavigationBar: CustomBottomBar(

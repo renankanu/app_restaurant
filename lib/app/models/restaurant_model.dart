@@ -1,58 +1,12 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part "restaurant_model.g.dart";
+part 'restaurant_model.g.dart';
 
 @JsonSerializable()
 class RestaurantModel {
-  String id;
-  String name;
-  String url;
-  Location location;
-  String averageCostForTwo;
-  String priceRange;
-  String currency;
-  String thumb;
-  String featuredImage;
-  String photosUrl;
-  String menuUrl;
-  String eventsUrl;
-  UserRating userRating;
-  String hasOnlineDelivery;
-  String isDeliveringNow;
-  String hasTableBooking;
-  String deeplink;
-  String cuisines;
-  String allReviewsCount;
-  String photoCount;
-  String phoneNumbers;
-  List<Photos> photos;
-  List<AllReviews> allReviews;
+  Restaurant restaurant;
 
-  RestaurantModel({
-    this.id,
-    this.name,
-    this.url,
-    this.location,
-    this.averageCostForTwo,
-    this.priceRange,
-    this.currency,
-    this.thumb,
-    this.featuredImage,
-    this.photosUrl,
-    this.menuUrl,
-    this.eventsUrl,
-    this.userRating,
-    this.hasOnlineDelivery,
-    this.isDeliveringNow,
-    this.hasTableBooking,
-    this.deeplink,
-    this.cuisines,
-    this.allReviewsCount,
-    this.photoCount,
-    this.phoneNumbers,
-    this.photos,
-    this.allReviews,
-  });
+  RestaurantModel({this.restaurant});
 
   factory RestaurantModel.fromJson(Map<String, dynamic> json) =>
       _$RestaurantModelFromJson(json);
@@ -60,23 +14,141 @@ class RestaurantModel {
 }
 
 @JsonSerializable()
+class Restaurant {
+  R r;
+  String apikey;
+  String id;
+  String name;
+  String url;
+  Location location;
+  int switchToOrderMenu;
+  String cuisines;
+  String timings;
+  int averageCostForTwo;
+  int priceRange;
+  String currency;
+  List<String> highlights;
+  List<dynamic> offers;
+  int opentableSupport;
+  int isZomatoBookRes;
+  String mezzoProvider;
+  int isBookFormWebView;
+  String bookFormWebViewUrl;
+  String bookAgainUrl;
+  String thumb;
+  UserRating userRating;
+  int allReviewsCount;
+  String photosUrl;
+  int photoCount;
+  String menuUrl;
+  String featuredImage;
+  int hasOnlineDelivery;
+  int isDeliveringNow;
+  String storeType;
+  bool includeBogoOffers;
+  String deeplink;
+  int isTableReservationSupported;
+  int hasTableBooking;
+  String eventsUrl;
+  String phoneNumbers;
+  AllReviews allReviews;
+  List<String> establishment;
+  List<dynamic> establishmentTypes;
+  int medioProvider;
+
+  Restaurant(
+      {this.r,
+      this.apikey,
+      this.id,
+      this.name,
+      this.url,
+      this.location,
+      this.switchToOrderMenu,
+      this.cuisines,
+      this.timings,
+      this.averageCostForTwo,
+      this.priceRange,
+      this.currency,
+      this.highlights,
+      this.offers,
+      this.opentableSupport,
+      this.isZomatoBookRes,
+      this.mezzoProvider,
+      this.isBookFormWebView,
+      this.bookFormWebViewUrl,
+      this.bookAgainUrl,
+      this.thumb,
+      this.userRating,
+      this.allReviewsCount,
+      this.photosUrl,
+      this.photoCount,
+      this.menuUrl,
+      this.featuredImage,
+      this.hasOnlineDelivery,
+      this.isDeliveringNow,
+      this.storeType,
+      this.includeBogoOffers,
+      this.deeplink,
+      this.isTableReservationSupported,
+      this.hasTableBooking,
+      this.eventsUrl,
+      this.phoneNumbers,
+      this.allReviews,
+      this.establishment,
+      this.establishmentTypes,
+      this.medioProvider});
+
+  factory Restaurant.fromJson(Map<String, dynamic> json) =>
+      _$RestaurantFromJson(json);
+  Map<String, dynamic> toJson() => _$RestaurantToJson(this);
+}
+
+@JsonSerializable()
+class R {
+  int resId;
+  bool isGroceryStore;
+  HasMenuStatus hasMenuStatus;
+
+  R({this.resId, this.isGroceryStore, this.hasMenuStatus});
+
+  factory R.fromJson(Map<String, dynamic> json) => _$RFromJson(json);
+  Map<String, dynamic> toJson() => _$RToJson(this);
+}
+
+@JsonSerializable()
+class HasMenuStatus {
+  int delivery;
+  int takeaway;
+
+  HasMenuStatus({this.delivery, this.takeaway});
+
+  factory HasMenuStatus.fromJson(Map<String, dynamic> json) =>
+      _$HasMenuStatusFromJson(json);
+  Map<String, dynamic> toJson() => _$HasMenuStatusToJson(this);
+}
+
+@JsonSerializable()
 class Location {
   String address;
   String locality;
   String city;
+  int cityId;
   String latitude;
   String longitude;
   String zipcode;
-  String countryId;
+  int countryId;
+  String localityVerbose;
 
   Location(
       {this.address,
       this.locality,
       this.city,
+      this.cityId,
       this.latitude,
       this.longitude,
       this.zipcode,
-      this.countryId});
+      this.countryId,
+      this.localityVerbose});
 
   factory Location.fromJson(Map<String, dynamic> json) =>
       _$LocationFromJson(json);
@@ -88,10 +160,21 @@ class UserRating {
   String aggregateRating;
   String ratingText;
   String ratingColor;
-  String votes;
+  RatingObj ratingObj;
+  int votes;
+  String customRatingText;
+  String customRatingTextBackground;
+  String ratingToolTip;
 
   UserRating(
-      {this.aggregateRating, this.ratingText, this.ratingColor, this.votes});
+      {this.aggregateRating,
+      this.ratingText,
+      this.ratingColor,
+      this.ratingObj,
+      this.votes,
+      this.customRatingText,
+      this.customRatingTextBackground,
+      this.ratingToolTip});
 
   factory UserRating.fromJson(Map<String, dynamic> json) =>
       _$UserRatingFromJson(json);
@@ -99,89 +182,57 @@ class UserRating {
 }
 
 @JsonSerializable()
-class Photos {
-  String id;
-  String url;
-  String thumbUrl;
-  User user;
-  String resId;
-  String caption;
-  String timestamp;
-  String friendlyTime;
-  String width;
-  String height;
-  String commentsCount;
-  String likesCount;
+class RatingObj {
+  Title title;
+  BgColor bgColor;
 
-  Photos(
-      {this.id,
-      this.url,
-      this.thumbUrl,
-      this.user,
-      this.resId,
-      this.caption,
-      this.timestamp,
-      this.friendlyTime,
-      this.width,
-      this.height,
-      this.commentsCount,
-      this.likesCount});
+  RatingObj({this.title, this.bgColor});
 
-  factory Photos.fromJson(Map<String, dynamic> json) => _$PhotosFromJson(json);
-  Map<String, dynamic> toJson() => _$PhotosToJson(this);
+  factory RatingObj.fromJson(Map<String, dynamic> json) =>
+      _$RatingObjFromJson(json);
+  Map<String, dynamic> toJson() => _$RatingObjToJson(this);
 }
 
 @JsonSerializable()
-class User {
-  String name;
-  String zomatoHandle;
-  String foodieLevel;
-  String foodieLevelNum;
-  String foodieColor;
-  String profileUrl;
-  String profileDeeplink;
-  String profileImage;
+class Title {
+  String text;
 
-  User(
-      {this.name,
-      this.zomatoHandle,
-      this.foodieLevel,
-      this.foodieLevelNum,
-      this.foodieColor,
-      this.profileUrl,
-      this.profileDeeplink,
-      this.profileImage});
+  Title({this.text});
 
-  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
-  Map<String, dynamic> toJson() => _$UserToJson(this);
+  factory Title.fromJson(Map<String, dynamic> json) => _$TitleFromJson(json);
+  Map<String, dynamic> toJson() => _$TitleToJson(this);
+}
+
+@JsonSerializable()
+class BgColor {
+  String type;
+  String tint;
+
+  BgColor({this.type, this.tint});
+
+  factory BgColor.fromJson(Map<String, dynamic> json) =>
+      _$BgColorFromJson(json);
+  Map<String, dynamic> toJson() => _$BgColorToJson(this);
 }
 
 @JsonSerializable()
 class AllReviews {
-  String rating;
-  String reviewText;
-  String id;
-  String ratingColor;
-  String reviewTimeFriendly;
-  String ratingText;
-  String timestamp;
-  String likes;
-  User user;
-  String commentsCount;
+  List<Reviews> reviews;
 
-  AllReviews(
-      {this.rating,
-      this.reviewText,
-      this.id,
-      this.ratingColor,
-      this.reviewTimeFriendly,
-      this.ratingText,
-      this.timestamp,
-      this.likes,
-      this.user,
-      this.commentsCount});
+  AllReviews({this.reviews});
 
   factory AllReviews.fromJson(Map<String, dynamic> json) =>
       _$AllReviewsFromJson(json);
   Map<String, dynamic> toJson() => _$AllReviewsToJson(this);
+}
+
+@JsonSerializable()
+class Reviews {
+  List<dynamic> review;
+
+  Reviews({this.review});
+
+  factory Reviews.fromJson(Map<String, dynamic> json) =>
+      _$ReviewsFromJson(json);
+  Map<String, dynamic> toJson() => _$ReviewsToJson(this);
 }

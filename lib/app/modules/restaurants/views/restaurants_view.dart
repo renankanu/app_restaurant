@@ -11,15 +11,12 @@ class RestaurantsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('RestaurantsView'),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: Text(
-          'RestaurantsView is working',
-          style: TextStyle(fontSize: 20),
-        ),
+      body: ListView.builder(
+        itemCount: controller.restaurants.length,
+        shrinkWrap: true,
+        itemBuilder: (context, index) {
+          return Text(controller.restaurants[index].restaurant.name);
+        },
       ),
     );
   }

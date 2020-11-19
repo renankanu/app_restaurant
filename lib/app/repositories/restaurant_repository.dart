@@ -13,6 +13,8 @@ class RestaurantRepository {
   Future<List<RestaurantModel>> getRestaurant() async {
     try {
       final response = await _dio.client.get('search');
+      var restaurant = response.data['restaurants'];
+      print(restaurant);
       return (response.data['restaurants'] as List)
           .map((restaurant) => RestaurantModel.fromJson(restaurant))
           .toList();
