@@ -23,7 +23,13 @@ class ItemRestaurant extends StatelessWidget {
                   replacement: Image.asset('assets/images/no_image.png'),
                 ),
               ),
-              Text(restaurantModel.restaurant.name),
+              Column(
+                children: [
+                  Text(restaurantModel.restaurant.name),
+                  Flexible(child: Text(restaurantModel.restaurant.timings)),
+                  Text(restaurantModel.restaurant.name),
+                ],
+              ),
             ],
           ),
         ),
