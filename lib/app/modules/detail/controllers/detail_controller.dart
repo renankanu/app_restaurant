@@ -4,10 +4,14 @@ class DetailController extends GetxController {
   final count = 0.obs;
 
   @override
-  void onInit() {}
+  void onInit() {
+    super.onInit();
+  }
 
   @override
-  void onReady() {}
+  void onReady() {
+    super.onReady();
+  }
 
   @override
   void onClose() {}
