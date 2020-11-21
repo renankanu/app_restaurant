@@ -5,7 +5,6 @@ class Environments {
 }
 
 class ConfigEnvironments {
-  static final String _currentEnvironments = Environments.HML;
   static List<Map<String, String>> _availableEnvironments = [
     {
       'env': Environments.DEV,
